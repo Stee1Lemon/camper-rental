@@ -1,5 +1,11 @@
+import Catalog from 'components/Catalog';
+
 const CatalogPage = () => {
-  return <h2>Catalog page</h2>;
+  return (
+    <section>
+      <Catalog />
+    </section>
+  );
 };
 
 export default CatalogPage;

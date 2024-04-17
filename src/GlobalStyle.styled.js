@@ -4,9 +4,21 @@ import { normalize } from 'styled-normalize';
 const GlobalStyle = createGlobalStyle`
 ${normalize}
 
+:root{
+  --white-color: #fff;
+  --first-color: #101828;
+  --second-color: #475467;
+  --third-color: #e44848;
+  --fourth-color: #ffc531;
+  --fifth-color: #f2f4f7;
+  --sixth-color: #f7f7f7;
+  --button-hover: #d84343;
+  --placeholder-color: rgba(16, 24, 40, 0.6);
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   font-style: normal;
   width: 100%;
   height: 100vh;
