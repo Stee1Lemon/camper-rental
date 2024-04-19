@@ -6,8 +6,8 @@ const Button = styled.button`
   background: var(--third-color);
   border-radius: 200px;
   padding: 16px 60px;
-  width: 173px;
-  height: 56px;
+  min-width: 173px;
+  min-height: 56px;
   border: none;
 
   &:hover {

@@ -14,6 +14,7 @@ ${normalize}
   --sixth-color: #f7f7f7;
   --button-hover: #d84343;
   --placeholder-color: rgba(16, 24, 40, 0.6);
+  --border-color: rgba(16, 24, 40, 0.2)
 }
 
 body {
@@ -31,7 +32,7 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;

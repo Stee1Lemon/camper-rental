@@ -22,8 +22,9 @@ export const Container = styled.div`
   left: 0;
   margin: auto;
   z-index: 91;
-  padding: 40px;
   width: fit-content;
   height: fit-content;
   border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
