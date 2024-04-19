@@ -8,12 +8,11 @@ import {
   Image,
   NameAndPrice,
   ReviewsAndLocation,
-  Svg,
 } from './VehicleCard.styled';
-import FavoriteButton from 'components/FavoriteButton';
-import image from 'assets/icons.svg';
+import FavoriteButton from 'components/CommonElements/FavoriteButton';
 import { Button } from 'components/CommonElements';
-import Categories from 'components/Categories';
+import Categories from 'components/CommonElements/Categories';
+import Svg from 'components/CommonElements/Svg';
 
 const VehicleCard = () => {
   const [vehicleModal, setVehicleModal] = useState(false);
@@ -34,19 +33,11 @@ const VehicleCard = () => {
           </NameAndPrice>
           <ReviewsAndLocation>
             <div>
-              <Svg>
-                <svg>
-                  <use href={`${image}#icon-star`} />
-                </svg>
-              </Svg>
+              <Svg icon="star" width="16px" height="16px" />
               <p>4.4(2 Reviews)</p>
             </div>
             <div>
-              <Svg>
-                <svg>
-                  <use href={`${image}#icon-location`} />
-                </svg>
-              </Svg>
+              <Svg icon="location" width="16px" height="16px" />
               <p>Kyive, Ukraine</p>
             </div>
           </ReviewsAndLocation>

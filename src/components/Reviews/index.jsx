@@ -1,4 +1,3 @@
-import { Svg } from 'components/VehicleCard/VehicleCard.styled';
 import {
   Image,
   Rate,
@@ -6,7 +5,7 @@ import {
   ReviewsContainer,
   UserInfo,
 } from './Reviews.styled';
-import images from 'assets/icons.svg';
+import Svg from 'components/CommonElements/Svg';
 
 const Reviews = () => {
   return (
@@ -19,11 +18,12 @@ const Reviews = () => {
           <div>
             <p>Name</p>
             <Rate>
-              <Svg>
+              {/* <Svg>
                 <svg>
                   <use href={`${images}#icon-star`} />
                 </svg>
-              </Svg>
+              </Svg> */}
+              <Svg icon="star" width="16px" height="16px" />
               <p>3</p>
             </Rate>
           </div>
@@ -43,11 +43,7 @@ const Reviews = () => {
           <div>
             <p>Name</p>
             <Rate>
-              <Svg>
-                <svg>
-                  <use href={`${images}#icon-star`} />
-                </svg>
-              </Svg>
+              <Svg icon="star" width="16px" height="16px" />
               <p>3</p>
             </Rate>
           </div>

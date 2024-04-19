@@ -10,10 +10,9 @@ import {
   ReviewsAndLocationModal,
   TogglerFeaturesReviews,
 } from './VehicleInfo.styled';
-import CloseButton from 'components/CloseButton';
-import { Svg } from 'components/VehicleCard/VehicleCard.styled';
-import image from 'assets/icons.svg';
+import CloseButton from 'components/CommonElements/CloseButton';
 import { useState } from 'react';
+import Svg from 'components/CommonElements/Svg';
 
 const VehicleInfo = ({ onClose }) => {
   const [additionalInfo, setAdditionalInfo] = useState('features');
@@ -31,19 +30,11 @@ const VehicleInfo = ({ onClose }) => {
       <div>
         <ReviewsAndLocationModal>
           <div>
-            <Svg>
-              <svg>
-                <use href={`${image}#icon-star`} />
-              </svg>
-            </Svg>
+            <Svg icon="star" width="16px" height="16px" />
             <p>4.4(2 Reviews)</p>
           </div>
           <div>
-            <Svg>
-              <svg>
-                <use href={`${image}#icon-location`} />
-              </svg>
-            </Svg>
+            <Svg icon="location" width="16px" height="16px" />
             <p>Kyive, Ukraine</p>
           </div>
         </ReviewsAndLocationModal>

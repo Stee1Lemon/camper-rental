@@ -1,4 +1,4 @@
-import CloseButtonStyled from 'components/CloseButton/CloseButton.styled';
+import CloseButtonStyled from 'components/CommonElements/CloseButton/CloseButton.styled';
 import styled from 'styled-components';
 
 export const Card = styled.div`
@@ -52,6 +52,7 @@ export const ReviewsAndLocation = styled.div`
   margin-bottom: 24px;
 
   p {
+    margin-left: 4px;
     display: inline-block;
     font-weight: 400;
     font-size: 16px;
@@ -59,15 +60,15 @@ export const ReviewsAndLocation = styled.div`
   }
 `;
 
-export const Svg = styled.div`
-  display: inline-block;
-  border: none;
-  background-color: transparent;
-  svg {
-    width: 16px;
-    height: 16px;
-  }
-`;
+// export const Svg = styled.div`
+//   display: inline-block;
+//   border: none;
+//   background-color: transparent;
+//   svg {
+//     width: 16px;
+//     height: 16px;
+//   }
+// `;
 
 export const Description = styled.div`
   width: 526px;

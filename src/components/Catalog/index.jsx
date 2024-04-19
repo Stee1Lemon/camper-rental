@@ -1,7 +1,7 @@
 import { Container } from 'components/CommonElements';
 import VehicleCard from 'components/VehicleCard';
 import CatalogFilter from 'components/CatalogFilter';
-import { CatalogField } from './Catalog.styled';
+import { CatalogField, VehicleCardsField } from './Catalog.styled';
 
 const Catalog = () => {
   return (
@@ -9,7 +9,10 @@ const Catalog = () => {
       <h2>Catalog</h2>
       <CatalogField>
         <CatalogFilter />
-        <VehicleCard />
+        <VehicleCardsField>
+          <VehicleCard />
+          <VehicleCard />
+        </VehicleCardsField>
       </CatalogField>
       <button>Load more</button>
     </Container>

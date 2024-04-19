@@ -1,7 +1,7 @@
-import CloseButton from 'components/CloseButton';
+import CloseButton from 'components/CommonElements/CloseButton';
 import { Button, Input } from 'components/CommonElements';
 import image from 'assets/icons.svg';
-import Categories from 'components/Categories';
+import Categories from 'components/CommonElements/Categories';
 
 const HomePage = () => {
   return (
