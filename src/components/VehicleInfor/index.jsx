@@ -2,6 +2,7 @@ import BookCampervanForm from 'components/BookCampervanForm';
 import Features from 'components/Fearures';
 import Reviews from 'components/Reviews';
 import {
+  AdditionalInfoField,
   Container,
   Description,
   ImagesContainer,
@@ -79,11 +80,11 @@ const VehicleInfo = ({ onClose }) => {
           Reviews
         </label>
       </TogglerFeaturesReviews>
-      <div>
+      <AdditionalInfoField>
         {additionalInfo === 'features' && <Features />}
         {additionalInfo === 'reviews' && <Reviews />}
         <BookCampervanForm />
-      </div>
+      </AdditionalInfoField>
     </Container>
   );
 };

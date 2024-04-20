@@ -75,3 +75,8 @@ export const TogglerFeaturesReviews = styled.div`
     color: var(--first-color);
   }
 `;
+
+export const AdditionalInfoField = styled.div`
+  display: flex;
+  gap: 24px;
+`;

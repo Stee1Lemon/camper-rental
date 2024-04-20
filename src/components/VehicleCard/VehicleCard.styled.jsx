@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   box-sizing: border-box;
+  margin-bottom: 24px;
   display: flex;
   gap: 24px;
   width: 888px;

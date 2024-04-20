@@ -5,5 +5,4 @@ export const CatalogField = styled.div`
   gap: 64px;
 `;
 export const VehicleCardsField = styled.div`
-  margin-bottom: 32px;
 `;
