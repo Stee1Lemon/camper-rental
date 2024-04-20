@@ -6,42 +6,42 @@ import {
   FeaturesContainer,
 } from './Features.styled';
 
-const Features = () => {
+const Features = ({ info }) => {
   return (
     <FeaturesContainer>
       <FeaturesBlock>
-        <Categories icon={'adults'} category={'2 adults'} />
-        <Categories icon={'automatic'} category={'Automatic'} />
-        <Categories icon={'ac'} category={'AC'} />
-        <Categories icon={'petrol'} category={'Petrol'} />
-        <Categories icon={'bad'} category={'1 beds'} />
-        <Categories icon={'automatic'} category={'Automatic'} />
+        {Object.entries(info.details).map(([key, value]) => (
+          <Categories
+            icon={key}
+            category={`${value > 1 ? value : ''} ${key}`}
+          />
+        ))}
       </FeaturesBlock>
       <Details>Vehicle details</Details>
       <DetailsList>
         <li>
           <p>Form</p>
-          <p>Panel truck</p>
+          <p>{info.form}</p>
         </li>
         <li>
           <p>Length</p>
-          <p>5.4 m</p>
+          <p>{info.length}</p>
         </li>
         <li>
           <p>Width</p>
-          <p>2.01 m</p>
+          <p>{info.width}</p>
         </li>
         <li>
           <p>Height</p>
-          <p>2.05 m</p>
+          <p>{info.height}</p>
         </li>
         <li>
           <p>Tank</p>
-          <p>132</p>
+          <p>{info.tank}</p>
         </li>
         <li>
           <p>Consumption</p>
-          <p>12.41/100km</p>
+          <p>{info.consumption}</p>
         </li>
       </DetailsList>
     </FeaturesContainer>

@@ -14,49 +14,46 @@ import { Button } from 'components/CommonElements';
 import Categories from 'components/CommonElements/Categories';
 import Svg from 'components/CommonElements/Svg';
 
-const VehicleCard = () => {
+const VehicleCard = ({ info }) => {
   const [vehicleModal, setVehicleModal] = useState(false);
 
   return (
     <>
       <Card>
         <Image>
-          <img src="" alt="test vehicle" />
+          <img src={info.gallery[0]} alt="vehicle" />
         </Image>
         <div>
           <NameAndPrice>
-            <h3>Mavericks</h3>
+            <h3>{info.name}</h3>
             <div>
-              <p>€8000.00</p>
+              <p>€{info.price}.00</p>
               <FavoriteButton isFavorite={false} />
             </div>
           </NameAndPrice>
           <ReviewsAndLocation>
             <div>
               <Svg icon="star" width="16px" height="16px" />
-              <p>4.4(2 Reviews)</p>
+              <p>
+                {info.rating}({info.reviews.length} Reviews)
+              </p>
             </div>
             <div>
               <Svg icon="location" width="16px" height="16px" />
-              <p>Kyive, Ukraine</p>
+              <p>{info.location}</p>
             </div>
           </ReviewsAndLocation>
           <Description>
-            <p>
-              Description Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Similique, asperiores! Culpa, doloremque beatae
-              exercitationem dolore neque iure accusantium obcaecati
-              consectetur?
-            </p>
+            <p>{info.description}</p>
           </Description>
 
           <Equipment>
-            <Categories icon={'adults'} category={'2 adults'} />
-            <Categories icon={'automatic'} category={'automatic'} />
-            <Categories icon={'petrol'} category={'petrol'} />
-            <Categories icon={'petrol'} category={'petrol'} />
-            <Categories icon={'petrol'} category={'petrol'} />
-            <Categories icon={'petrol'} category={'petrol'} />
+            {Object.entries(info.details).map(([key, value]) => (
+              <Categories
+                icon={key}
+                category={`${value > 1 ? value : ''} ${key}`}
+              />
+            ))}
           </Equipment>
           <Button onClick={() => setVehicleModal(!vehicleModal)}>
             Show more
@@ -65,7 +62,10 @@ const VehicleCard = () => {
             isOpen={vehicleModal}
             onClose={() => setVehicleModal(!vehicleModal)}
           >
-            <VehicleInfo onClose={() => setVehicleModal(!vehicleModal)} />
+            <VehicleInfo
+              onClose={() => setVehicleModal(!vehicleModal)}
+              info={info}
+            />
           </Modal>
         </div>
       </Card>

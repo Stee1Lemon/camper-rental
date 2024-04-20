@@ -9,6 +9,9 @@ export const FeaturesBlock = styled.div`
   gap: 8px;
   flex-wrap: wrap;
   width: 430px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin-bottom: 44px;
 `;
 
@@ -28,6 +31,11 @@ export const DetailsList = styled.ul`
   li {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   p {
     font-size: 18px;

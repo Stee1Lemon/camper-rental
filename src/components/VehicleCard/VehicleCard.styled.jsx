@@ -18,6 +18,17 @@ export const Image = styled.div`
   max-width: 290px;
   min-height: 310px;
   max-height: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 export const NameAndPrice = styled.div`
@@ -86,8 +97,11 @@ export const Description = styled.div`
 `;
 
 export const Equipment = styled.div`
+  max-height: 96px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
