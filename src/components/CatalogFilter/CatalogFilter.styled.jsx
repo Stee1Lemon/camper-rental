@@ -1,6 +1,12 @@
 import { Button, Input } from 'components/CommonElements';
 import styled from 'styled-components';
 
+export const FormField = styled.form`
+  max-height: 747px;
+  position: sticky;
+  top: 30px;
+`;
+
 export const FilterNameField = styled.p`
   line-height: 1.5;
   box-sizing: border-box;

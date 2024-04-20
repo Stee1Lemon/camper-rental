@@ -1,24 +1,30 @@
 import { Container } from 'components/CommonElements';
 import VehicleCard from 'components/VehicleCard';
 import CatalogFilter from 'components/CatalogFilter';
-import { CatalogField, VehicleCardsField } from './Catalog.styled';
+import {
+  CatalogField,
+  LoadMoreButton,
+  VehicleCardsField,
+} from './Catalog.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import campervanApi from 'reduxApp/root/rootOperations';
 import { selectCampervan } from 'reduxApp/root/rootSelector';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+let currentPage = 1;
 
 const Catalog = () => {
+  const [loadMoreButton, setLoadMoreButton] = useState(true);
   const dispatch = useDispatch();
-  let currentPage = 1;
+
   const vans = useSelector(selectCampervan);
 
   const handleClick = async () => {
     currentPage++;
-    const result = await dispatch(
+    const { payload } = await dispatch(
       campervanApi.getCampervanThunk({ page: currentPage })
     );
-
-    console.log(result);
+    if (payload.length < 4) setLoadMoreButton(false);
   };
 
   useEffect(() => {
@@ -36,7 +42,9 @@ const Catalog = () => {
           })}
         </VehicleCardsField>
       </CatalogField>
-      <button onClick={handleClick}>Load more</button>
+      {loadMoreButton ? (
+        <LoadMoreButton onClick={handleClick}>Load more</LoadMoreButton>
+      ) : null}
     </Container>
   );
 };
