@@ -3,6 +3,7 @@ import {
   CheckBoxField,
   FilterNameField,
   FilterType,
+  FormField,
   LocationInput,
   SearchButton,
 } from './CatalogFilter.styled';
@@ -65,7 +66,7 @@ const CatalogFilter = () => {
   };
 
   return (
-    <form>
+    <FormField>
       <FilterNameField>Location</FilterNameField>
       <LocationInput
         type="text"
@@ -101,7 +102,7 @@ const CatalogFilter = () => {
       <SearchButton type="submit" onClick={handleSubmit}>
         Search
       </SearchButton>
-    </form>
+    </FormField>
   );
 };
 

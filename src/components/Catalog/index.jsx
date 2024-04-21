@@ -33,7 +33,6 @@ const Catalog = () => {
 
   return (
     <Container>
-      <h2>Catalog</h2>
       <CatalogField>
         <CatalogFilter />
         <VehicleCardsField>
