@@ -1,6 +1,6 @@
 import Modal from 'components/Modal';
 import VehicleInfo from 'components/VehicleInfor';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Card,
   Description,
