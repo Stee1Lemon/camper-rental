@@ -1,24 +1,17 @@
 import { CheckInput, CheckLabel, Image } from './CheckBox.styled';
 import image from 'assets/icons.svg';
 
-const CheckBoxInput = ({ checked, name, value, icon, onChange }) => {
-  // const [checked, setChecked] = useState(false);
-
-  const handleChange = () => {
-    // setChecked(!checked);
-    onChange(checked);
-  };
-
+const CheckBoxInput = ({ name, value, icon, onChange }) => {
   return (
     <>
       <CheckInput
         type="checkbox"
-        checked={checked}
+        id={value}
         name={name}
         value={value}
         onChange={onChange}
       />
-      <CheckLabel onClick={handleChange}>
+      <CheckLabel htmlFor={value}>
         <Image>
           <svg>
             <use xlinkHref={`${image}#icon-${icon}`} />
