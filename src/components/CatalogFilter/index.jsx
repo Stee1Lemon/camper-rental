@@ -35,14 +35,19 @@ const CatalogFilter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const checkedEquipmentOptions = equipmentOptions.filter(
-      (option) => option.checked
-    );
-    const checkedVehicleTypeOptions = equipmentOptions.filter(
-      (option) => option.checked
-    );
-    console.log(checkedEquipmentOptions);
-    console.log(checkedVehicleTypeOptions);
+    const checkedEquipmentOptions = equipmentOptions
+      .filter((option) => option.checked)
+      .map((option) => ({ name: option.name, value: option.value }));
+    const checkedVehicleTypeOptions = vehicleTypeOptions
+      .filter((option) => option.checked)
+      .map((option) => ({ name: option.name, value: option.value }));
+
+    const toSearch = [
+      location,
+      ...checkedEquipmentOptions,
+      ...checkedVehicleTypeOptions,
+    ];
+    console.log(toSearch);
   };
 
   const handleChangeEquipment = (value) => {

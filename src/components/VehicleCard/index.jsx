@@ -43,7 +43,7 @@ const VehicleCard = ({ info }) => {
           <NameAndPrice>
             <h3>{info.name}</h3>
             <div>
-              <p>€{info.price},00</p>
+              <p>€{info.price.toFixed(2)}</p>
               <FavoriteButton
                 isFavorite={isFavorite}
                 onClick={handleFavorite}

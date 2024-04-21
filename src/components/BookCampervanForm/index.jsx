@@ -9,6 +9,7 @@ import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.module.css';
 import { date, object, string } from 'yup';
 import { useFormik } from 'formik';
+import Notiflix from 'notiflix';
 
 const BookCampervanForm = () => {
   const bookingSchema = object({
@@ -18,7 +19,7 @@ const BookCampervanForm = () => {
     comment: string(),
   });
 
-  const formic = useFormik({
+  const formik = useFormik({
     initialValues: {
       name: '',
       email: '',
@@ -29,12 +30,13 @@ const BookCampervanForm = () => {
     onSubmit: async (values) => {
       // const result = await dispatch(axios(values))
       // if (result.error) return Notiflix.Notify.failure(result.payload);
-      console.log(values);
+      formik.resetForm();
+      Notiflix.Notify.success('Thank you for your contact');
     },
   });
 
   return (
-    <FormField onSubmit={formic.handleSubmit}>
+    <FormField onSubmit={formik.handleSubmit}>
       <h3>Book your campervan now</h3>
       <p>Stay connected! We are always ready to help you.</p>
       <InputsField>
@@ -42,12 +44,12 @@ const BookCampervanForm = () => {
           type="text"
           name="name"
           placeholder="Name"
-          onChange={formic.handleChange}
-          onBlur={formic.handleBlur}
-          value={formic.values.name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.name}
           style={{
             border:
-              formic.errors.name && formic.touched.name
+              formik.errors.name && formik.touched.name
                 ? '1px solid var(--third-color)'
                 : null,
           }}
@@ -56,32 +58,32 @@ const BookCampervanForm = () => {
           type="email"
           name="email"
           placeholder="Email"
-          onChange={formic.handleChange}
-          onBlur={formic.handleBlur}
-          value={formic.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
           style={{
             border:
-              formic.errors.email && formic.touched.email
+              formik.errors.email && formik.touched.email
                 ? '1px solid var(--third-color)'
                 : null,
           }}
         />
         <ReactDatePicker
-          selected={formic.values.date}
-          onChange={(date) => formic.setFieldValue('date', date)}
+          selected={formik.values.date}
+          onChange={(date) => formik.setFieldValue('date', date)}
           placeholderText="Booking date"
           dateFormat="dd-MM-yyyy"
           minDate={new Date()}
           customInput={
             <Input
               name="date"
-              value={formic.values.date}
-              onChange={formic.handleChange}
-              onBlur={formic.handleBlur}
+              value={formik.values.date}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               readOnly={true}
               style={{
                 border:
-                  formic.errors.name && formic.touched.name
+                  formik.errors.name && formik.touched.name
                     ? '1px solid var(--third-color)'
                     : null,
               }}
@@ -91,12 +93,12 @@ const BookCampervanForm = () => {
         <CommentInput
           type="text"
           name="comment"
-          onBlur={formic.handleBlur}
-          onChange={formic.handleChange}
-          value={formic.values.comment}
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
+          value={formik.values.comment}
           placeholder="Comment"
         />
-        {Object.keys(formic.errors).length > 0 && formic.touched ? (
+        {Object.keys(formik.errors).length > 0 && formik.touched ? (
           <Message>Name, email, date is required</Message>
         ) : null}
       </InputsField>

@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
+export const NavContainer = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 100;
+`;
+
 export const NavField = styled.nav`
+
   display: flex;
   gap: 50px;
   padding-top: 20px;
