@@ -1,6 +1,6 @@
 import Modal from 'components/Modal';
 import VehicleInfo from 'components/VehicleInfor';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Card,
   Description,
@@ -13,13 +13,19 @@ import FavoriteButton from 'components/CommonElements/FavoriteButton';
 import { Button } from 'components/CommonElements';
 import Categories from 'components/CommonElements/Categories';
 import Svg from 'components/CommonElements/Svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { campervanSlice } from 'reduxApp/root/rootSlice';
+import { selectFavorite } from 'reduxApp/root/rootSelector';
 
 const VehicleCard = ({ info }) => {
   const [vehicleModal, setVehicleModal] = useState(false);
-  const [isFavorite, setIsFavotite] = useState(false);
   const dispatch = useDispatch();
+  const favoritVans = useSelector(selectFavorite);
+
+  const checkIsVanInFavorite = () => {
+    return favoritVans.some((van) => van._id === info._id);
+  };
+  const [isFavorite, setIsFavotite] = useState(checkIsVanInFavorite);
 
   const handleFavorite = () => {
     dispatch(campervanSlice.actions.toggleFavorite(info));
