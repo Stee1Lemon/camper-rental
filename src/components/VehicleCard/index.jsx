@@ -13,9 +13,18 @@ import FavoriteButton from 'components/CommonElements/FavoriteButton';
 import { Button } from 'components/CommonElements';
 import Categories from 'components/CommonElements/Categories';
 import Svg from 'components/CommonElements/Svg';
+import { useDispatch } from 'react-redux';
+import { campervanSlice } from 'reduxApp/root/rootSlice';
 
 const VehicleCard = ({ info }) => {
   const [vehicleModal, setVehicleModal] = useState(false);
+  const [isFavorite, setIsFavotite] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleFavorite = () => {
+    dispatch(campervanSlice.actions.toggleFavorite(info));
+    setIsFavotite(!isFavorite);
+  };
 
   return (
     <>
@@ -27,8 +36,11 @@ const VehicleCard = ({ info }) => {
           <NameAndPrice>
             <h3>{info.name}</h3>
             <div>
-              <p>€{info.price}.00</p>
-              <FavoriteButton isFavorite={false} />
+              <p>€{info.price},00</p>
+              <FavoriteButton
+                isFavorite={isFavorite}
+                onClick={handleFavorite}
+              />
             </div>
           </NameAndPrice>
           <ReviewsAndLocation>

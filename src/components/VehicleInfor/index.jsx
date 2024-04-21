@@ -42,7 +42,7 @@ const VehicleInfo = ({ onClose, info }) => {
             <p>{info.location}</p>
           </div>
         </ReviewsAndLocationModal>
-        <Price>€{info.price}.00</Price>
+        <Price>€{info.price},00</Price>
       </div>
       <ImagesContainer>
         {info.gallery.map((img) => (
@@ -76,7 +76,7 @@ const VehicleInfo = ({ onClose, info }) => {
       </TogglerFeaturesReviews>
       <AdditionalInfoField>
         {additionalInfo === 'features' && <Features info={info} />}
-        {additionalInfo === 'reviews' && <Reviews reviews={info.reviews} />}
+        {additionalInfo === 'reviews' && <Reviews info={info} />}
         <BookCampervanForm />
       </AdditionalInfoField>
     </Container>

@@ -19,15 +19,6 @@ export const UserInfo = styled.div`
   }
 `;
 
-export const Image = styled.div`
-  min-width: 60px;
-  max-width: 60px;
-  min-height: 60px;
-  max-height: 60px;
-  border-radius: 60px;
-  background-color: gray;
-`;
-
 export const Rate = styled.div`
   display: flex;
   gap: 4px;

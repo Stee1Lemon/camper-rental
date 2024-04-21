@@ -12,6 +12,19 @@ export const initialState = {
 export const campervanSlice = createSlice({
   name: 'root',
   initialState,
+  reducers: {
+    toggleFavorite(state, { payload }) {
+      const favoriteIndex = state.favorite.findIndex(
+        (item) => item._id === payload._id
+      );
+
+      if (favoriteIndex !== -1) {
+        state.favorite.splice(favoriteIndex, 1);
+      } else {
+        state.favorite.push(payload);
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(campervanApi.getCampervanThunk.fulfilled, handleCampervans)

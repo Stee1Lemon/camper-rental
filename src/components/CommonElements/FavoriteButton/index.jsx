@@ -1,9 +1,9 @@
 import FavoriteButtonStyled from './FavoriteButton.styled';
 import icons from 'assets/icons.svg';
 
-const FavoriteButton = ({ isFavorite }) => {
+const FavoriteButton = ({ isFavorite, onClick }) => {
   return (
-    <FavoriteButtonStyled>
+    <FavoriteButtonStyled onClick={onClick}>
       <svg>
         <use
           href={
