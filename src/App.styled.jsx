@@ -6,6 +6,7 @@ const AppWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100% 100%;
+  overflow-x: hidden;
 `;
 
 export default AppWrapper;

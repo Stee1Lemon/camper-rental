@@ -28,8 +28,9 @@ const Catalog = () => {
   };
 
   useEffect(() => {
+    if (vans.length !== 0) return;
     dispatch(campervanApi.getCampervanThunk({ page: 1 }));
-  }, [dispatch]);
+  }, [vans.length, dispatch]);
 
   return (
     <Container>

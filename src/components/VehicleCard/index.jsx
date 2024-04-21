@@ -1,6 +1,6 @@
 import Modal from 'components/Modal';
 import VehicleInfo from 'components/VehicleInfor';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Card,
   Description,
@@ -19,18 +19,19 @@ import { selectFavorite } from 'reduxApp/root/rootSelector';
 
 const VehicleCard = ({ info }) => {
   const [vehicleModal, setVehicleModal] = useState(false);
+  const [isFavorite, setIsFavotite] = useState(false);
   const dispatch = useDispatch();
   const favoritVans = useSelector(selectFavorite);
-
-  const checkIsVanInFavorite = () => {
-    return favoritVans.some((van) => van._id === info._id);
-  };
-  const [isFavorite, setIsFavotite] = useState(checkIsVanInFavorite);
 
   const handleFavorite = () => {
     dispatch(campervanSlice.actions.toggleFavorite(info));
     setIsFavotite(!isFavorite);
   };
+
+  useEffect(() => {
+    const result = favoritVans.some((van) => van._id === info._id);
+    setIsFavotite(result);
+  }, [favoritVans, info._id]);
 
   return (
     <>
